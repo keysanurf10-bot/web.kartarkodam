@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karang Taruna RW 013</title>
+    <meta name="description" content="Website resmi Karang Taruna RW 013 Perumahan Kodam Mustikajaya, Kota Bekasi.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #090909;
+            color: white;
+            line-height: 1.7;
+        }
+        :root {
+            --emas: #e6b85c;
+            --hitam: #090909;
+            --abu: #171717;
+            --putih: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        /* NAVBAR */
+        header {
+            background: rgba(9, 9, 9, 0.96);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: var(--emas);
+        }
+        .logo span {
+            display: block;
+            color: white;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--emas);
+        }
+        .menu-btn {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--emas);
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        /* BERANDA */
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 20%, #42321a, transparent 35%),
+                linear-gradient(120deg, #090909, #191919);
+            padding: 80px 0;
+        }
+        .hero-content {
+            max-width: 750px;
+        }
+        .label {
+            color: var(--emas);
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+        .hero h1 span {
+            color: var(--emas);
+        }
+        .hero p {
+            color: #cccccc;
+            max-width: 650px;
+            font-size: 17px;
+        }
+        .tombol {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: var(--emas);
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .tombol:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+        .tombol-outline {
+            display: inline-block;
+            margin: 25px 0 0 10px;
+            padding: 11px 25px;
+            border: 1px solid var(--emas);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        /* STATISTIK */
+        .statistik {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: #141414;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        .stat {
+            text-align: center;
+            padding: 25px 10px;
+            border-right: 1px solid #333;
+        }
+        .stat h2 {
+            color: var(--emas);
+            font-size: 28px;
+        }
+        .stat p {
+            color: #aaa;
+            font-size: 13px;
+        }
+        /* BAGIAN UMUM */
+        section {
+            padding: 85px 0;
+        }
+        .judul {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .judul h2 {
+            font-size: 35px;
+            margin: 10px 0;
+        }
+        .judul h2 span {
+            color: var(--emas);
+        }
+        .judul p {
+            color: #aaa;
+        }
+        .gelap {
+            background: #111111;
+        }
+        /* TENTANG */
+        .tentang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+        .tentang-visual {
+            background: linear-gradient(135deg, #332817, #171717);
+            border: 1px solid #5b4726;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+        }
+        .tentang-visual h2 {
+            font-size: 90px;
+            color: var(--emas);
+            line-height: 1.2;
+        }
+        .tentang-visual p {
+            color: #ddd;
+        }
+        .tentang-text h2 {
+            font-size: 30px;
+            margin: 10px 0 20px;
+        }
+        .tentang-text p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        .daftar {
+            list-style: none;
+        }
+        .daftar li {
+            padding: 9px 0;
+            border-bottom: 1px solid #292929;
+        }
+        .daftar li::before {
+            content: "✓ ";
+            color: var(--emas);
+            font-weight: bold;
+        }
+        /* KARTU */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .card {
+            background: var(--abu);
+            padding: 28px;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--emas);
+        }
+        .ikon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--emas);
+        }
+        .card p {
+            color: #bbb;
+            font-size: 14px;
+        }
+        /* PROGRAM */
+        .kategori {
+            display: inline-block;
+            color: var(--emas);
+            font-size: 12px;
+            margin-top: 18px;
+            letter-spacing: 1px;
+        }
+        /* STRUKTUR */
+        .struktur {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .pengurus {
+            text-align: center;
+            background: #171717;
+            padding: 25px 15px;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .pengurus:hover {
+            border-color: var(--emas);
+        }
+        .avatar {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #332817;
+            border: 1px solid var(--emas);
+            color: var(--emas);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .pengurus h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .pengurus p {
+            color: var(--emas);
+            font-size: 13px;
+        }
+        .catatan {
+            color: #999;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        /* GALERI */
+        .galeri {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .foto {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #44351e, #171717);
+            border: 1px solid #333;
+        }
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+        .foto:hover img {
+            transform: scale(1.08);
+        }
+        .foto-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 35px 15px 15px;
+            background: linear-gradient(transparent, #000);
+        }
+        .foto-info h3 {
+            font-size: 16px;
+        }
+        .foto-info p {
+            color: #ddd;
+            font-size: 12px;
+        }
+        /* AGENDA */
+        .agenda-list {
+            display: grid;
+            gap: 15px;
+        }
+        .agenda-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: #171717;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #292929;
+        }
+        .tanggal {
+            min-width: 65px;
+            text-align: center;
+            color: var(--emas);
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .tanggal small {
+            display: block;
+            font-size: 11px;
+        }
+        .agenda-info h3 {
+            font-size: 17px;
+        }
+        .agenda-info p {
+            color: #aaa;
+            font-size: 13px;
+        }
+        /* KONTAK */
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .kontak-box {
+            background: #171717;
+            border: 1px solid #292929;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .kontak-box h3 {
+            color: var(--emas);
+            margin-bottom: 15px;
+        }
+        .kontak-box p {
+            color: #bbb;
+            margin-bottom: 12px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 12px;
+            background: #090909;
+            color: white;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font: inherit;
+        }
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        button.kirim {
+            background: var(--emas);
+            color: #111;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* AJAKAN */
+        .ajakan {
+            text-align: center;
+            background: linear-gradient(135deg, #302517, #151515);
+            border: 1px solid #5b4726;
+            border-radius: 15px;
+            padding: 45px 25px;
+        }
+        .ajakan h2 {
+            font-size: 32px;
+            margin: 10px 0;
+        }
+        .ajakan p {
+            color: #bbb;
+        }
+        /* FOOTER */
+        footer {
+            background: #050505;
+            border-top: 1px solid #292929;
+            padding: 30px 0;
+            text-align: center;
+        }
+        footer h3 {
+            color: var(--emas);
+            margin-bottom: 8px;
+        }
+        footer p {
+            color: #888;
+            font-size: 12px;
+        }
+        @media (max-width: 850px) {
+            .menu-btn {
+                display: block;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                background: #111;
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav.aktif {
+                display: flex;
+            }
+            .tentang-grid,
+            .kontak-grid {
+                grid-template-columns: 1fr;
+            }
+            .grid,
+            .struktur,
+            .galeri {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 550px) {
+            section {
+                padding: 60px 0;
+            }
+            .hero {
+                min-height: 500px;
+            }
+            .hero h1 {
+                font-size: 43px;
+            }
+            .statistik {
+                grid-template-columns: 1fr;
+            }
+            .stat {
+                border-bottom: 1px solid #333;
+            }
+            .grid,
+            .struktur,
+            .galeri {
+                grid-template-columns: 1fr;
+            }
+            .judul h2 {
+                font-size: 28px;
+            }
+            .tentang-visual h2 {
+                font-size: 70px;
+            }
+            .agenda-item {
+                align-items: flex-start;
+            }
+            .ajakan h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<header>
+    <div class="container navbar">
+        <div class="logo">
+            KARANG TARUNA
+            <span>RW 013 MUSTIKAJAYA</span>
+        </div>
+        <button class="menu-btn" id="menuBtn">☰ Menu</button>
+        <nav id="nav">
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#program">Program</a>
+            <a href="#pengurus">Pengurus</a>
+            <a href="#galeri">Galeri</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </div>
+</header>
+<!-- BERANDA -->
+<section class="hero" id="beranda">
+    <div class="container">
+        <div class="hero-content">
+            <div class="label">Pemuda Bergerak, Lingkungan Berdampak</div>
+            <h1>
+                Satu Hati,<br>
+                <span>Satu Aksi.</span>
+            </h1>
+            <p>
+                Selamat datang di website Karang Taruna RW 013
+                Perumahan Kodam Mustikajaya. Wadah bagi generasi muda
+                untuk berkarya, mempererat persaudaraan, mengembangkan
+                kreativitas, dan memberikan manfaat bagi masyarakat.
+            </p>
+            <a href="#tentang" class="tombol">Kenali Kami ↗️</a>
+            <a href="#program" class="tombol-outline">Program Kami</a>
+        </div>
+    </div>
+</section>
+<!-- STATISTIK -->
+<div class="statistik">
+    <div class="stat">
+        <h2>2026–2031</h2>
+        <p>Masa Bakti Kepengurusan</p>
+    </div>
+    <div class="stat">
+        <h2>RW 013</h2>
+        <p>Tempat Kami Berkarya</p>
+    </div>
+    <div class="stat">
+        <h2>Satu Aksi</h2>
+        <p>Untuk Lingkungan Lebih Baik</p>
+    </div>
+</div>
+<!-- TENTANG -->
+<section id="tentang">
+    <div class="container tentang-grid">
+        <div class="tentang-visual">
+            <h2>013</h2>
+            <p>Satu Hati, Satu Aksi</p>
+            <p>Bergerak Bersama, Tumbuh Bersama.</p>
+        </div>
+        <div class="tentang-text">
+            <div class="label">Tentang Kami</div>
+            <h2>
+                Bersama Pemuda,
+                <span style="color:#e6b85c">Membangun Lingkungan.</span>
+            </h2>
+            <p>
+                Karang Taruna RW 013 merupakan wadah generasi muda
+                di Perumahan Kodam Mustikajaya untuk mengembangkan
+                potensi, kreativitas, dan kepedulian sosial.
+            </p>
+            <p>
+                Kami percaya bahwa perubahan positif dapat dimulai
+                dari lingkungan sendiri. Melalui kebersamaan, gotong
+                royong, dan berbagai kegiatan, kami berusaha menciptakan
+                lingkungan yang aktif, harmonis, dan inspiratif.
+            </p>
+            <ul class="daftar">
+                <li>Mempererat persaudaraan antarwarga.</li>
+                <li>Mengembangkan bakat dan kreativitas pemuda.</li>
+                <li>Meningkatkan kepedulian sosial.</li>
+                <li>Membangun semangat gotong royong.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- NILAI ORGANISASI -->
+<section class="gelap">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Nilai Organisasi</div>
+            <h2>Semangat <span>Kami</span></h2>
+            <p>Prinsip yang menjadi dasar setiap kegiatan Karang Taruna.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="ikon">🤝</div>
+                <h3>Kebersamaan</h3>
+                <p>
+                    Menjaga kekompakan, mempererat kekeluargaan,
+                    dan bekerja sama untuk tujuan bersama.
+                </p>
+            </div>
+            <div class="card">
+                <div class="ikon">💡</div>
+                <h3>Kreativitas</h3>
+                <p>
+                    Memberikan ruang bagi ide baru dan potensi
+                    generasi muda untuk berkembang.
+                </p>
+            </div>
+            <div class="card">
+                <div class="ikon">🌱</div>
+                <h3>Kepedulian</h3>
+                <p>
+                    Menumbuhkan kepedulian terhadap sesama,
+                    lingkungan, dan kehidupan bermasyarakat.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PROGRAM KERJA -->
+<section id="program">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Program Kerja</div>
+            <h2>Ruang untuk <span>Berkarya</span></h2>
+            <p>Berbagai kegiatan untuk membangun pemuda yang aktif dan bermanfaat.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="ikon">⚽</div>
+                <h3>Olahraga</h3>
+                <p>
+                    Turnamen bola voli, futsal, tenis meja,
+                    dan kegiatan olahraga untuk meningkatkan
+                    kesehatan serta sportivitas.
+                </p>
+                <div class="kategori">AKTIF & SPORTIF</div>
+            </div>
+            <div class="card">
+                <div class="ikon">🎭</div>
+                <h3>Seni dan Budaya</h3>
+                <p>
+                    Lomba menari, menyanyi, fashion show,
+                    karnaval budaya, dan pertunjukan kreativitas warga.
+                </p>
+                <div class="kategori">KREATIF & BERBUDAYA</div>
+            </div>
+            <div class="card">
+                <div class="ikon">🧹</div>
+                <h3>Sosial dan Lingkungan</h3>
+                <p>
+                    Kerja bakti, kegiatan kebersihan, gotong royong,
+                    dan aksi kepedulian terhadap warga.
+                </p>
+                <div class="kategori">PEDULI SESAMA</div>
+            </div>
+            <div class="card">
+                <div class="ikon">📚</div>
+                <h3>Edukasi Pemuda</h3>
+                <p>
+                    Berbagi pengetahuan, pengembangan keterampilan,
+                    dan kegiatan belajar bersama.
+                </p>
+                <div class="kategori">TUMBUH BERSAMA</div>
+            </div>
+            <div class="card">
+                <div class="ikon">🇮🇩</div>
+                <h3>Perayaan HUT RI</h3>
+                <p>
+                    Perlombaan kemerdekaan, karnaval, bazar,
+                    dan malam puncak untuk mempererat persaudaraan.
+                </p>
+                <div class="kategori">SEMANGAT KEMERDEKAAN</div>
+            </div>
+            <div class="card">
+                <div class="ikon">🌟</div>
+                <h3>Pemberdayaan Pemuda</h3>
+                <p>
+                    Mendorong pemuda untuk berorganisasi,
+                    berkolaborasi, dan menciptakan kegiatan positif.
+                </p>
+                <div class="kategori">PEMUDA BERDAYA</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- STRUKTUR PENGURUS -->
+<section class="gelap" id="pengurus">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Organisasi Kami</div>
+            <h2>Struktur <span>Kepengurusan</span></h2>
+            <p>Unit Kerja Karang Taruna RW 013 · Masa Bakti 2026–2031</p>
+        </div>
+        <div class="struktur">
+            <div class="pengurus">
+                <div class="avatar">FW</div>
+                <h3>Fernando Wibisono</h3>
+                <p>Ketua</p>
+            </div>
+            <div class="pengurus">
+                <div class="avatar">MI</div>
+                <h3>Mahardika Imani M.</h3>
+                <p>Wakil Ketua I</p>
+            </div>
+            <div class="pengurus">
+                <div class="avatar">RF</div>
+                <h3>Rakhmat Fauzi F.</h3>
+                <p>Sekretaris</p>
+            </div>
+            <div class="pengurus">
+                <div class="avatar">MI</div>
+                <h3>Muhamad Ilyas</h3>
+                <p>Wakil Sekretaris I</p>
+            </div>
+            <div class="pengurus">
+                <div class="avatar">RP</div>
+                <h3>Refi Panji Pratama</h3>
+                <p>Bendahara</p>
+            </div>
+            <div class="pengurus">
+                <div class="avatar">KN</div>
+                <h3>Keysa Nur Fadiyah</h3>
+                <p>Wakil Bendahara I</p>
+            </div>
+        </div>
+        <p class="catatan">
+            Pelindung, pembina, penasehat, serta anggota bidang olahraga,
+            seni dan budaya, sosial, dan unit kerja lainnya dapat
+            ditambahkan sesuai struktur resmi organisasi.
+        </p>
+    </div>
+</section>
+<!-- GALERI -->
+<section id="galeri">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Dokumentasi</div>
+            <h2>Galeri <span>Kegiatan</span></h2>
+            <p>Momen kebersamaan dan semangat pemuda RW 013.</p>
+        </div>
+        <div class="galeri">
+            <!-- Ganti nama file sesuai foto milikmu -->
+            <div class="foto">
+                <img src="images/keolahragaan.jpeg"
+                     alt="Kegiatan olahraga Karang Taruna"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>Olahraga</h3>
+                    <p>Membangun sportivitas.</p>
+                </div>
+            </div>
+            <div class="foto">
+                <img src="images/seni budaya.jpeg"
+                     alt="Kegiatan seni dan budaya"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>Seni dan Budaya</h3>
+                    <p>Menyalurkan kreativitas.</p>
+                </div>
+            </div>
+            <div class="foto">
+                <img src="images/kerja bakti.jpeg"
+                     alt="Kerja bakti warga"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>Kerja Bakti</h3>
+                    <p>Peduli lingkungan.</p>
+                </div>
+            </div>
+            <div class="foto">
+                <img src="images/hut ri.jpeg"
+                     alt="Perayaan HUT Republik Indonesia"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>HUT Republik Indonesia</h3>
+                    <p>Merayakan kemerdekaan bersama.</p>
+                </div>
+            </div>
+            <div class="foto">
+                <img src="images/kebersamaan.jpeg"
+                     alt="Kebersamaan anggota Karang Taruna"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>Kebersamaan</h3>
+                    <p>Satu hati, satu aksi.</p>
+                </div>
+            </div>
+            <div class="foto">
+                <img src="images/kegiatan rapat warga.jpeg"
+                     alt="Kegiatan warga RW 013"
+                     onerror="this.style.display='none'">
+                <div class="foto-info">
+                    <h3>Kegiatan Warga</h3>
+                    <p>Bersama membangun lingkungan.</p>
+                </div>
+            </div>
+        </div>
+        <p class="catatan">
+            Simpan foto di folder images dengan nama file yang sesuai
+            agar foto muncul di website.
+        </p>
+    </div>
+</section>
+<!-- AGENDA -->
+<section class="gelap" id="agenda">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Informasi Organisasi</div>
+            <h2>Agenda <span>Kegiatan</span></h2>
+            <p>Contoh agenda yang dapat diperbarui oleh pengurus.</p>
+        </div>
+        <div class="agenda-list">
+            <div class="agenda-item">
+                <div class="tanggal">01<small>AGENDA</small></div>
+                <div class="agenda-info">
+                    <h3>Rapat Pengurus</h3>
+                    <p>Koordinasi dan evaluasi program kerja organisasi.</p>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="tanggal">02<small>AGENDA</small></div>
+                <div class="agenda-info">
+                    <h3>Kerja Bakti Lingkungan</h3>
+                    <p>Menjaga kebersihan dan kenyamanan lingkungan RW 013.</p>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="tanggal">03<small>AGENDA</small></div>
+                <div class="agenda-info">
+                    <h3>Kegiatan Olahraga Pemuda</h3>
+                    <p>Mempererat silaturahmi melalui olahraga bersama.</p>
+                </div>
+            </div>
+        </div>
+        <p class="catatan">
+            Agenda di atas merupakan contoh, bukan jadwal kegiatan resmi.
+            Perbarui sesuai tanggal dan kegiatan yang telah ditetapkan.
+        </p>
+    </div>
+</section>
+<!-- KONTAK -->
+<section id="kontak">
+    <div class="container">
+        <div class="judul">
+            <div class="label">Hubungi Kami</div>
+            <h2>Mari <span>Berkolaborasi</span></h2>
+            <p>Punya ide kegiatan atau ingin ikut berkontribusi? Hubungi kami.</p>
+        </div>
+        <div class="kontak-grid">
+            <div class="kontak-box">
+                <h3>Karang Taruna RW 013</h3>
+                <p>
+                    📍 Perumahan Kodam Mustikajaya,
+                    Kelurahan Mustikajaya, Kecamatan Mustika Jaya,
+                    Kota Bekasi.
+                </p>
+                <p>
+                    🤝 Terbuka untuk kolaborasi kegiatan sosial,
+                    olahraga, seni, budaya, dan kepemudaan.
+                </p>
+                <p>
+                    📱 Tambahkan tautan WhatsApp atau media sosial
+                    resmi Karang Taruna di bagian ini.
+                </p>
+            </div>
+            <div class="kontak-box">
+                <h3>Kirim Pesan</h3>
+                <form id="formKontak">
+                    <input type="text" id="nama"
+                           placeholder="Nama kamu" required>
+                    <input type="text" id="subjek"
+                           placeholder="Topik pesan" required>
+                    <textarea id="pesan"
+                              placeholder="Tulis pesan kamu..."
+                              required></textarea>
+                    <button class="kirim" type="submit">
+                        Siapkan Pesan ↗️
+                    </button>
+                </form>
+                <p class="catatan">
+                    Form ini membuka aplikasi email di perangkat.
+                    Ganti alamat email tujuan pada JavaScript sebelum digunakan.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- AJAKAN -->
+<section style="padding-top:0">
+    <div class="container">
+        <div class="ajakan">
+            <div class="label">Satu Lingkungan, Satu Keluarga</div>
+            <h2>
+                Pemuda Bergerak,<br>
+                <span style="color:#e6b85c">Lingkungan Berkembang.</span>
+            </h2>
+            <p>
+                Mulai dari ide sederhana, wujudkan perubahan bersama.
+            </p>
+            <a href="#kontak" class="tombol">Ayo Terlibat ↗️</a>
+        </div>
+    </div>
+</section>
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <h3>KARANG TARUNA RW 013</h3>
+        <p>Perumahan Kodam Mustikajaya · Kota Bekasi</p>
+        <p>Satu Hati, Satu Aksi.</p>
+        <p style="margin-top:15px">
+            © <span id="tahun"></span> Karang Taruna RW 013.
+            Semua hak dilindungi.
+        </p>
+    </div>
+</footer>
+<script>
+    // Menu navigasi untuk tampilan HP
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    menuBtn.addEventListener("click", function () {
+        nav.classList.toggle("aktif");
+    });
+    // Menutup menu setelah bagian dipilih
+    nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            nav.classList.remove("aktif");
+        });
+    });
+    // Tahun otomatis pada footer
+    document.getElementById("tahun").textContent =
+        new Date().getFullYear();
+    // Form kontak: siapkan email
+    document.getElementById("formKontak")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nama = document.getElementById("nama").value;
+            const subjek = document.getElementById("subjek").value;
+            const pesan = document.getElementById("pesan").value;
+            // Ganti dengan alamat email resmi pengurus
+            const emailTujuan = "email-pengurus@example.com";
+            const isiPesan =
+                "Nama: " + nama + "\n\n" + pesan;
+            const linkEmail =
+                "mailto:" + emailTujuan +
+                "?subject=" + encodeURIComponent(subjek) +
+                "&body=" + encodeURIComponent(isiPesan);
+            window.location.href = linkEmail;
+        });
+</script>
+</body>
+</html>
